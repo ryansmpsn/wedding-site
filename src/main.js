@@ -116,7 +116,8 @@ const content = {
       submit: 'Save RSVP'
     },
     statusRestored: 'Your last response has been restored from this browser.',
-    statusSaved: 'RSVP saved locally. Connect this form to your preferred form backend before launch.'
+    statusSaved:
+      'RSVP saved locally. Connect this form to your preferred form backend before launch.'
   },
   es: {
     languageName: 'Español',
@@ -180,7 +181,8 @@ const content = {
     faqHeading: 'Preguntas frecuentes',
     faqs: [
       {
-        question: '¿Qué pasa si quiero quedarme más tiempo del permitido por el bloque de habitaciones?',
+        question:
+          '¿Qué pasa si quiero quedarme más tiempo del permitido por el bloque de habitaciones?',
         answer:
           'Puedes contactar a nuestro coordinador de viajes para la boda, Jared, para revisar si el hotel puede acomodar tu solicitud.'
       },
@@ -316,18 +318,18 @@ const renderApp = () => {
       <nav class="site-nav" aria-label="${copy.navLabel}">
         <a href="#weekend">${copy.navWeekend}</a>
         <a href="#details">${copy.navDetails}</a>
-        <a class="button-link button-link--ghost" href="#rsvp">${copy.navReplyNow}</a>
+        <a href="#rsvp">${copy.navReplyNow}</a>
       </nav>
-      <div class="language-switcher" role="group" aria-label="${copy.languageSwitcherLabel}">
-        ${renderLanguageButton('en', currentLanguage, 'EN')}
-        ${renderLanguageButton('es', currentLanguage, 'ES')}
-      </div>
     </header>
 
     <main id="top">
       <section class="hero-shell section-navy">
         <div class="hero-card">
           <div class="hero-overlay" aria-hidden="true"></div>
+          <div class="hero-language-switcher" role="group" aria-label="${copy.languageSwitcherLabel}">
+            ${renderLanguageButton('en', currentLanguage, 'EN')}
+            ${renderLanguageButton('es', currentLanguage, 'ES')}
+          </div>
           <div class="hero-copy">
             <p class="eyebrow">${copy.heroLocation}</p>
             <h1>${copy.brand}</h1>
@@ -602,7 +604,12 @@ const initializeCountdown = () => {
     seconds: document.querySelector('[data-countdown="seconds"]')
   };
 
-  if (!countdownFields.days || !countdownFields.hours || !countdownFields.minutes || !countdownFields.seconds) {
+  if (
+    !countdownFields.days ||
+    !countdownFields.hours ||
+    !countdownFields.minutes ||
+    !countdownFields.seconds
+  ) {
     return;
   }
 
