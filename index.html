@@ -12,6 +12,17 @@
   </head>
   <body>
     <div id="app"></div>
+    <form name="rsvp" method="POST" data-netlify="true" hidden aria-hidden="true">
+      <input type="hidden" name="form-name" value="rsvp" />
+      <input type="text" name="guestName" />
+      <input type="email" name="email" />
+      <input type="text" name="songRequest" />
+      <select name="attendance">
+        <option value="joyfullyAccepts">Joyfully accepts</option>
+        <option value="regretfullyDeclines">Regretfully declines</option>
+      </select>
+      <textarea name="notes"></textarea>
+    </form>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

@@ -109,6 +109,12 @@ p {
   letter-spacing: 0.18em;
 }
 
+.site-brand-logo {
+  height: 4rem;
+  width: auto;
+  display: block;
+}
+
 .site-nav {
   display: flex;
   align-items: center;
@@ -501,10 +507,11 @@ label,
   line-height: 1;
 }
 
-.travel-venue {
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  font-weight: 400;
+.travel-heading--shared {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: clamp(2rem, 4vw, 3rem) 2rem 0;
+  color: var(--navy);
 }
 
 .travel-note {
@@ -513,7 +520,7 @@ label,
   text-transform: none;
   letter-spacing: 0.04em;
   font-style: italic;
-  color: var(--mist);
+  color: rgba(69, 87, 99, 0.78);
 }
 
 .button-link--outline {

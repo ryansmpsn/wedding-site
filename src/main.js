@@ -1,3 +1,4 @@
+import logoUrl from './assets/logo.svg';
 import './style.css';
 
 const LANGUAGE_STORAGE_KEY = 'wedding-site-language';
@@ -21,25 +22,25 @@ const content = {
       'Our room block is available for 3 or 4 nights starting on April 15, 2027',
       'Optional shared transportation available for $85 per person when traveling in groups',
       'Last day to book a room in block is December 1, 2026',
-      'An initial deposit is required at the time of booking',
+      'An initial deposit is required at the time of booking'
+    ],
+    emailLines: [
       'For any questions on booking a room, payment plans, or other inquiries, please contact our wedding travel coordinator, Jared',
       'Phone: 877-737-0177 (option 2)'
     ],
     bookingHours: 'Hours: 9 AM - 5 PM EST',
     emailJared: 'Email Jared',
-    resortName: 'Hotel Catalonia Grand in Costa Mujeres, MX',
-    resortHelp: 'To view and book our room block click below',
     resortCode: 'Group code 0417',
     bookRoom: 'Book a Room',
     ceremonyMoments: [
       {
         title: 'The Ceremony',
-        lines: ['Beginning at 3:00 PM', 'At the Ocean Deck'],
-        note: 'Formal attire'
+        lines: ['Beginning time TBA', 'At the Piano Bar'],
+        note: 'Semi-formal attire'
       },
       {
         title: 'The Celebration',
-        lines: ['Cocktail hour at 4:00 PM', 'At the Lodge'],
+        lines: ['Cocktail hour TBA', 'At the Terrace'],
         note: 'After party later'
       }
     ],
@@ -93,20 +94,22 @@ const content = {
     ],
     letterIntro: 'Dear friends and family,',
     letterBody:
-      'We have been dreaming about this weekend for years. Mexico holds a quiet magic for us, and sharing this place with the people we love most is the part we are looking forward to most of all.',
+      "The greatest gift we could receive is celebrating our wedding with you. We know that traveling for our destination wedding is a meaningful commitment, and your presence means more to us than any gift ever could.  For those who asked, we've created a registry for anyone who wishes to celebrate with us that way. Thank you for your love and support. We can't wait to celebrate with you!",
     registryKicker: 'Our registry',
-    registryTitle: 'A few ways to celebrate with us',
+    registryTitle: 'Help Us Build Our Next Chapter',
     registryIdeasLabel: 'Registry ideas',
-    registryTags: ['Honeymoon dinner', 'Museum afternoon', 'Sunday brunch toast'],
+    registryTags: ['Honeymoon Moments', 'Home Essentials', 'Future Together'],
     giftButton: 'Give a gift',
     rsvpHeading: 'Reply now',
-    rsvpIntro:
-      'Let us know if you will be joining us. This demo form stores your response in this browser so the site stays fully static.',
+    rsvpIntro: 'Let us know if you will be joining us.',
     rsvpFields: {
       guestName: 'Guest name',
       guestNamePlaceholder: 'Rose Bloom',
       email: 'Email address',
       emailPlaceholder: 'you@example.com',
+      emailInvalid: 'Please enter a valid email address (example: you@example.com).',
+      songRequest: "Share a song you'd like to hear at our wedding",
+      songRequestPlaceholder: 'e.g., Beyond by Leon Bridges',
       attendance: 'Will you be joining us?',
       attendancePlaceholder: 'Select one',
       attendanceAccept: 'Joyfully accepts',
@@ -116,8 +119,9 @@ const content = {
       submit: 'Save RSVP'
     },
     statusRestored: 'Your last response has been restored from this browser.',
-    statusSaved:
-      'RSVP saved locally. Connect this form to your preferred form backend before launch.'
+    statusSaved: 'RSVP submitted and saved locally.',
+    statusError:
+      'Unable to submit RSVP right now. Your response is still saved locally in this browser.'
   },
   es: {
     languageName: 'Español',
@@ -135,25 +139,25 @@ const content = {
       'Nuestro bloque de habitaciones está disponible por 3 o 4 noches a partir del 15 de abril de 2027',
       'Transporte compartido opcional disponible por $85 por persona para grupos',
       'La fecha límite para reservar en el bloque es el 1 de diciembre de 2026',
-      'Se requiere un depósito inicial al momento de reservar',
+      'Se requiere un depósito inicial al momento de reservar'
+    ],
+    emailLines: [
       'Para preguntas sobre reserva de habitación, planes de pago u otras consultas, contacta a nuestro coordinador de viajes para la boda, Jared',
       'Teléfono: 877-737-0177 (opción 2)'
     ],
     bookingHours: 'Horario: 9 AM - 5 PM EST',
     emailJared: 'Enviar correo a Jared',
-    resortName: 'Hotel Catalonia Grand en Costa Mujeres, MX',
-    resortHelp: 'Para ver y reservar en nuestro bloque, haz clic abajo',
     resortCode: 'Código de grupo 0417',
     bookRoom: 'Reservar habitación',
     ceremonyMoments: [
       {
         title: 'La ceremonia',
-        lines: ['Comienza a las 3:00 PM', 'En Ocean Deck'],
-        note: 'Vestimenta formal'
+        lines: ['La hora está por confirmarse', 'En Bar de Piano'],
+        note: 'Vestimenta semi-formal'
       },
       {
         title: 'La celebración',
-        lines: ['Cóctel a las 4:00 PM', 'En The Lodge'],
+        lines: ['La hora está por confirmarse', 'En La Terraza'],
         note: 'After party más tarde'
       }
     ],
@@ -208,20 +212,22 @@ const content = {
     ],
     letterIntro: 'Queridos amigos y familia,',
     letterBody:
-      'Hemos soñado con este fin de semana durante años. México tiene una magia tranquila para nosotros, y compartir este lugar con las personas que más queremos es lo que más ilusión nos hace.',
+      'El regalo más grande que podríamos recibir es celebrar nuestra boda contigo. Sabemos que viajar para nuestra boda de destino es un compromiso significativo, y tu presencia significa más para nosotros que cualquier regalo. Para quienes lo preguntaron, hemos creado un registro para cualquiera que desee celebrar con nosotros de esa manera. ¡Gracias por tu amor y apoyo. ¡No podemos esperar a celebrar contigo!',
     registryKicker: 'Nuestra mesa de regalos',
     registryTitle: 'Algunas formas de celebrar con nosotros',
     registryIdeasLabel: 'Ideas de regalos',
-    registryTags: ['Cena de luna de miel', 'Tarde de museo', 'Brindis de brunch dominical'],
-    giftButton: 'Hacer un regalo',
+    registryTags: ['Momentos de Luna de Miel', 'Esenciales del Hogar', 'Futuro Juntos'],
+    giftButton: 'Dar un regalo',
     rsvpHeading: 'Confirma tu asistencia',
-    rsvpIntro:
-      'Cuéntanos si nos acompañarás. Este formulario demo guarda tu respuesta en este navegador para que el sitio siga siendo completamente estático.',
+    rsvpIntro: 'Cuéntanos si nos acompañarás.',
     rsvpFields: {
       guestName: 'Nombre del invitado',
       guestNamePlaceholder: 'Rosa Flores',
       email: 'Correo electrónico',
       emailPlaceholder: 'tu@correo.com',
+      emailInvalid: 'Por favor ingresa un correo valido (ejemplo: tu@correo.com).',
+      songRequest: 'Comparte una canción que te gustaría escuchar en nuestra boda',
+      songRequestPlaceholder: 'p. ej., Beyond de Leon Bridges',
       attendance: '¿Nos acompañarás?',
       attendancePlaceholder: 'Selecciona una opción',
       attendanceAccept: 'Acepto con gusto',
@@ -231,8 +237,9 @@ const content = {
       submit: 'Guardar RSVP'
     },
     statusRestored: 'Tu última respuesta se restauró en este navegador.',
-    statusSaved:
-      'RSVP guardado localmente. Conecta este formulario con tu backend de formularios preferido antes del lanzamiento.'
+    statusSaved: 'RSVP enviado y guardado localmente.',
+    statusError:
+      'No se pudo enviar el RSVP en este momento. Tu respuesta sigue guardada localmente en este navegador.'
   }
 };
 
@@ -308,13 +315,16 @@ const renderApp = () => {
   const bookingLines = copy.bookingLines
     .map((line) => `<p class="travel-venue">&bull; ${line}</p>`)
     .join('');
+  const emailLines = copy.emailLines
+    .map((line) => `<p class="travel-venue">&bull; ${line}</p>`)
+    .join('');
   const registryTags = copy.registryTags.map((tag) => `<span>${tag}</span>`).join('');
 
   document.documentElement.lang = currentLanguage;
 
   document.querySelector('#app').innerHTML = `
     <header class="site-header">
-      <a class="site-brand" href="#top">${copy.brand}</a>
+      <a class="site-brand" href="#top"><img src="${logoUrl}" alt="Ryan and Jessica" class="site-brand-logo" /></a>
       <nav class="site-nav" aria-label="${copy.navLabel}">
         <a href="#weekend">${copy.navWeekend}</a>
         <a href="#details">${copy.navDetails}</a>
@@ -345,19 +355,17 @@ const renderApp = () => {
           <h2 data-reveal="text" data-reveal-delay="140">${copy.invitationTitle}<br /><br /></h2>
 
           <div class="travel-split reveal-card" data-reveal="card">
+            <h3 class="travel-heading travel-heading--shared">${copy.bookingHeading}</h3>
             <div class="travel-col">
-              <h3 class="travel-heading">${copy.bookingHeading}</h3>
               ${bookingLines}
-              <p class="travel-note">${copy.bookingHours}</p>
-              <a class="button-link--outline" href="mailto:example@example.com" target="_blank" rel="noopener noreferrer">${copy.emailJared}</a>
+              <p class="travel-note">${copy.resortCode}</p>
+              <a class="button-link--outline" href="https://l.paradiseweddings.com/jessica-and-ryan" target="_blank" rel="noopener noreferrer">${copy.bookRoom}</a>
             </div>
             <div class="travel-divider" aria-hidden="true"></div>
             <div class="travel-col">
-              <h3 class="travel-heading"></h3>
-              <p class="travel-venue">${copy.resortName}</p>
-              <p class="travel-note">${copy.resortHelp}</p>
-              <p class="travel-note">${copy.resortCode}</p>
-              <a class="button-link--outline" href="#rsvp">${copy.bookRoom}</a>
+              ${emailLines}
+              <p class="travel-note">${copy.bookingHours}</p>
+              <a class="button-link--outline" href="mailto:guests@paradiseweddings.com" target="_blank" rel="noopener noreferrer">${copy.emailJared}</a>
             </div>
           </div>
 
@@ -444,17 +452,32 @@ const renderApp = () => {
           <p class="rsvp-intro" data-reveal="text" data-reveal-delay="90">
             ${copy.rsvpIntro}
           </p>
-          <form class="rsvp-form reveal-card" data-rsvp-form data-reveal="card" data-reveal-delay="160">
+          <form
+            class="rsvp-form reveal-card"
+            name="rsvp"
+            method="POST"
+            data-netlify="true"
+            data-rsvp-form
+            data-reveal="card"
+            data-reveal-delay="160">
+            <input type="hidden" name="form-name" value="rsvp" />
             <label>
-              ${rsvpFields.guestName}
+              ${rsvpFields.guestName}*
               <input type="text" name="guestName" placeholder="${rsvpFields.guestNamePlaceholder}" required />
             </label>
             <label>
-              ${rsvpFields.email}
+              ${rsvpFields.email}*
               <input type="email" name="email" placeholder="${rsvpFields.emailPlaceholder}" required />
             </label>
             <label>
-              ${rsvpFields.attendance}
+              ${rsvpFields.songRequest}
+              <input
+                type="text"
+                name="songRequest"
+                placeholder="${rsvpFields.songRequestPlaceholder}" />
+            </label>
+            <label>
+              ${rsvpFields.attendance}*
               <select name="attendance" required>
                 <option value="">${rsvpFields.attendancePlaceholder}</option>
                 <option value="joyfullyAccepts">${rsvpFields.attendanceAccept}</option>
@@ -641,6 +664,15 @@ const initializeRsvpForm = () => {
 
   const savedResponse = window.localStorage.getItem(RSVP_STORAGE_KEY);
   const copy = content[currentLanguage];
+  const guestNameField = form.querySelector('input[name="guestName"]');
+  const emailField = form.querySelector('input[name="email"]');
+  const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(value);
+
+  if (emailField) {
+    emailField.addEventListener('input', () => {
+      emailField.setCustomValidity('');
+    });
+  }
 
   if (savedResponse) {
     try {
@@ -658,13 +690,55 @@ const initializeRsvpForm = () => {
     }
   }
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    if (guestNameField) {
+      guestNameField.value = guestNameField.value.trim();
+    }
+
+    if (emailField) {
+      emailField.value = emailField.value.trim();
+
+      if (emailField.value && !isValidEmail(emailField.value)) {
+        emailField.setCustomValidity(copy.rsvpFields.emailInvalid);
+      } else {
+        emailField.setCustomValidity('');
+      }
+    }
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
     const formData = new FormData(form);
     const response = Object.fromEntries(formData.entries());
-    window.localStorage.setItem(RSVP_STORAGE_KEY, JSON.stringify(response));
-    status.textContent = copy.statusSaved;
+
+    const savedFields = {
+      guestName: response.guestName || '',
+      email: response.email || '',
+      songRequest: response.songRequest || '',
+      attendance: response.attendance || '',
+      notes: response.notes || ''
+    };
+    window.localStorage.setItem(RSVP_STORAGE_KEY, JSON.stringify(savedFields));
+
+    const netlifyPayload = new URLSearchParams(response).toString();
+
+    try {
+      const submission = await window.fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: netlifyPayload
+      });
+
+      status.textContent = submission.ok ? copy.statusSaved : copy.statusError;
+    } catch {
+      status.textContent = copy.statusError;
+    }
   });
 };
 
