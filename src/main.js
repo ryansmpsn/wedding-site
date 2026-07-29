@@ -12,7 +12,7 @@ const content = {
     brand: 'Ryan and Jessica',
     navWeekend: 'Weekend',
     navDetails: 'Details',
-    navReplyNow: 'Reply Now',
+    navReplyNow: 'RSVP',
     languageSwitcherLabel: 'Language',
     heroLocation: 'Costa Mujeres, MX',
     invitationKicker: "You're invited to celebrate",
@@ -100,7 +100,7 @@ const content = {
     registryIdeasLabel: 'Registry ideas',
     registryTags: ['Honeymoon Moments', 'Home Essentials', 'Future Together'],
     giftButton: 'Give a gift',
-    rsvpHeading: 'Reply now',
+    rsvpHeading: 'RSVP',
     rsvpIntro: 'Let us know if you will be joining us.',
     rsvpFields: {
       guestName: 'Guest name',
@@ -119,9 +119,8 @@ const content = {
       submit: 'Save RSVP'
     },
     statusRestored: 'Your last response has been restored from this browser.',
-    statusSaved: 'RSVP submitted and saved locally.',
-    statusError:
-      'Unable to submit RSVP right now. Your response is still saved locally in this browser.'
+    statusSaved: 'RSVP submitted.',
+    statusError: 'Unable to submit RSVP right now.'
   },
   es: {
     languageName: 'Español',
@@ -237,9 +236,8 @@ const content = {
       submit: 'Guardar RSVP'
     },
     statusRestored: 'Tu última respuesta se restauró en este navegador.',
-    statusSaved: 'RSVP enviado y guardado localmente.',
-    statusError:
-      'No se pudo enviar el RSVP en este momento. Tu respuesta sigue guardada localmente en este navegador.'
+    statusSaved: 'RSVP enviado.',
+    statusError: 'No se pudo enviar el RSVP en este momento.'
   }
 };
 
@@ -724,7 +722,10 @@ const initializeRsvpForm = () => {
     };
     window.localStorage.setItem(RSVP_STORAGE_KEY, JSON.stringify(savedFields));
 
-    const netlifyPayload = new URLSearchParams(response).toString();
+    const netlifyPayload = new URLSearchParams({
+      'form-name': 'rsvp',
+      ...response
+    }).toString();
 
     try {
       const submission = await window.fetch('/', {

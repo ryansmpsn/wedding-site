@@ -110,9 +110,14 @@ p {
 }
 
 .site-brand-logo {
-  height: 4rem;
+  margin-top: 0.5rem;
+  height: 2rem;
   width: auto;
   display: block;
+  transform-origin: center center;
+
+  /* Zooms in by 150% */
+  transform: scale(2.5);
 }
 
 .site-nav {
