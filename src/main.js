@@ -4,6 +4,7 @@ import './style.css';
 const LANGUAGE_STORAGE_KEY = 'wedding-site-language';
 const RSVP_STORAGE_KEY = 'rose-and-jordan-rsvp';
 const supportedLanguages = ['en', 'es'];
+let cleanupHeaderBehavior = null;
 
 const content = {
   en: {
@@ -537,6 +538,11 @@ const initializeLanguageSwitcher = () => {
 };
 
 const initializeHeaderBehavior = () => {
+  if (cleanupHeaderBehavior) {
+    cleanupHeaderBehavior();
+    cleanupHeaderBehavior = null;
+  }
+
   const siteHeader = document.querySelector('.site-header');
   const heroShell = document.querySelector('.hero-shell');
 
@@ -548,29 +554,43 @@ const initializeHeaderBehavior = () => {
     siteHeader.classList.toggle('site-header--visible', showHeader);
   };
 
+  const mobileMediaQuery = window.matchMedia('(max-width: 720px)');
+  let lastScrollY = Math.max(window.scrollY, 0);
+
   const updateHeaderVisibilityFromBounds = () => {
     const heroBounds = heroShell.getBoundingClientRect();
-    toggleHeader(heroBounds.bottom <= 0);
+    const heroHasScrolledPast = heroBounds.bottom <= 0;
+
+    if (!heroHasScrolledPast) {
+      toggleHeader(false);
+      lastScrollY = Math.max(window.scrollY, 0);
+      return;
+    }
+
+    if (!mobileMediaQuery.matches) {
+      toggleHeader(true);
+      lastScrollY = Math.max(window.scrollY, 0);
+      return;
+    }
+
+    const currentScrollY = Math.max(window.scrollY, 0);
+    const isScrollingUp = currentScrollY < lastScrollY;
+
+    toggleHeader(isScrollingUp);
+    lastScrollY = currentScrollY;
   };
 
-  if ('IntersectionObserver' in window) {
-    const heroObserver = new IntersectionObserver(
-      ([entry]) => {
-        const heroHasScrolledPast = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
-        toggleHeader(heroHasScrolledPast);
-      },
-      {
-        threshold: 0
-      }
-    );
-
-    heroObserver.observe(heroShell);
-  } else {
-    updateHeaderVisibilityFromBounds();
-    window.addEventListener('scroll', updateHeaderVisibilityFromBounds, { passive: true });
-  }
+  window.addEventListener('scroll', updateHeaderVisibilityFromBounds, { passive: true });
+  window.addEventListener('resize', updateHeaderVisibilityFromBounds);
+  mobileMediaQuery.addEventListener('change', updateHeaderVisibilityFromBounds);
 
   updateHeaderVisibilityFromBounds();
+
+  cleanupHeaderBehavior = () => {
+    window.removeEventListener('scroll', updateHeaderVisibilityFromBounds);
+    window.removeEventListener('resize', updateHeaderVisibilityFromBounds);
+    mobileMediaQuery.removeEventListener('change', updateHeaderVisibilityFromBounds);
+  };
 };
 
 const initializeRevealAnimations = () => {
