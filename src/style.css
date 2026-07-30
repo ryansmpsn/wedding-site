@@ -290,6 +290,7 @@ main {
 .timeline-note,
 .countdown-cell span,
 .rsvp-intro,
+.contact-intro,
 .letter-intro,
 .letter-body,
 .faq-item p,
@@ -389,7 +390,8 @@ label,
 .weekend h2,
 .registry-card h2,
 .details h2,
-.rsvp h2 {
+.rsvp h2,
+.contact h2 {
   font-family: var(--heading);
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 300;
@@ -454,7 +456,8 @@ label,
 .timeline-card p,
 .letter-body,
 .faq-item p,
-.rsvp-intro {
+.rsvp-intro,
+.contact-intro {
   text-transform: none;
   letter-spacing: 0.04em;
 }
@@ -707,12 +710,71 @@ label,
   text-align: center;
 }
 
+.contact {
+  text-align: center;
+  padding-top: 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-card {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.4rem, 2.8vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 1.6rem;
+  background: rgba(235, 229, 220, 0.72);
+  box-shadow: 0 18px 45px rgba(69, 87, 99, 0.08);
+  color: var(--navy);
+  text-align: left;
+}
+
+.contact-card h3 {
+  font-family: var(--heading);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.contact-meta {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.contact-label {
+  font-family: var(--heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  color: var(--mist);
+  text-transform: uppercase;
+}
+
+.contact-card a {
+  color: var(--navy);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.24em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(69, 87, 99, 0.28);
+}
+
+.contact-card a:hover,
+.contact-card a:focus-visible {
+  color: var(--mist);
+  text-decoration-color: currentColor;
+}
+
 .rsvp {
   text-align: center;
   padding-top: 0;
 }
 
-.rsvp-intro {
+.rsvp-intro,
+.contact-intro {
   max-width: 42rem;
   margin: 0 auto 1.35rem;
   color: var(--mist);
@@ -816,7 +878,8 @@ label,
   .timeline-grid,
   .split-layout,
   .countdown-block,
-  .faq-grid {
+  .faq-grid,
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 
@@ -878,7 +941,8 @@ label,
   .invitation h2,
   .weekend h2,
   .details h2,
-  .rsvp h2 {
+  .rsvp h2,
+  .contact h2 {
     line-height: 0.98;
   }
 

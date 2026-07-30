@@ -31,6 +31,16 @@ const content = {
     ],
     bookingHours: 'Hours: 9 AM - 5 PM EST',
     emailJared: 'Email Jared',
+    contactHeading: 'Contact',
+    contactIntro: 'Please reach out directly if you have any questions.',
+    contactPhoneLabel: 'Phone',
+    contactEmailLabel: 'Email',
+    contactRyanLabel: 'Ryan',
+    contactRyanPhone: '(904) 401-7142',
+    contactRyanEmail: 'ryzizn@gmail.com',
+    contactJessicaLabel: 'Jessica',
+    contactJessicaPhone: '(630) 392-1925',
+    contactJessicaEmail: 'jessicagonzalez698@gmail.com',
     resortCode: 'Group code 0417',
     bookRoom: 'Book a Room',
     travelMoments: [
@@ -153,6 +163,16 @@ const content = {
     ],
     bookingHours: 'Horario: 9 AM - 5 PM EST',
     emailJared: 'Enviar correo a Jared',
+    contactHeading: 'Contacto',
+    contactIntro: 'Si tienes alguna pregunta, no dudes en comunicarte directamente.',
+    contactPhoneLabel: 'Teléfono',
+    contactEmailLabel: 'Correo',
+    contactRyanLabel: 'Ryan',
+    contactRyanPhone: '(904) 401-7142',
+    contactRyanEmail: 'ryzizn@gmail.com',
+    contactJessicaLabel: 'Jessica',
+    contactJessicaPhone: '(630) 392-1925',
+    contactJessicaEmail: 'jessicagonzalez698@gmail.com',
     resortCode: 'Código de grupo 0417',
     bookRoom: 'Reservar habitación',
     travelMoments: [
@@ -460,6 +480,43 @@ const renderApp = () => {
             </div>
             <a class="button-link" href="https://www.zola.com/registry/simpsonregistry" target="_blank" rel="noopener noreferrer">${copy.giftButton}</a>
           </aside>
+        </div>
+      </section>
+
+      <section class="section section-white-chocolate contact" id="contact">
+        <div class="section-shell section-shell--narrow">
+          <div class="section-heading" data-reveal="text">
+            ${ornament}
+            <h2>${copy.contactHeading}</h2>
+          </div>
+          <p class="contact-intro" data-reveal="text" data-reveal-delay="90">
+            ${copy.contactIntro}
+          </p>
+          <div class="contact-grid">
+            <article class="contact-card reveal-card" data-reveal="card" data-reveal-delay="120">
+              <h3>${copy.contactRyanLabel}</h3>
+              <div class="contact-meta">
+                <span class="contact-label">${copy.contactPhoneLabel}</span>
+                <a href="tel:+15551234567">${copy.contactRyanPhone}</a>
+              </div>
+              <div class="contact-meta">
+                <span class="contact-label">${copy.contactEmailLabel}</span>
+                <a href="mailto:${copy.contactRyanEmail}">${copy.contactRyanEmail}</a>
+              </div>
+            </article>
+
+            <article class="contact-card reveal-card" data-reveal="card" data-reveal-delay="160">
+              <h3>${copy.contactJessicaLabel}</h3>
+              <div class="contact-meta">
+                <span class="contact-label">${copy.contactPhoneLabel}</span>
+                <a href="tel:+15557654321">${copy.contactJessicaPhone}</a>
+              </div>
+              <div class="contact-meta">
+                <span class="contact-label">${copy.contactEmailLabel}</span>
+                <a href="mailto:${copy.contactJessicaEmail}">${copy.contactJessicaEmail}</a>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
