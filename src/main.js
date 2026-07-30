@@ -20,7 +20,7 @@ const content = {
     bookingHeading: 'Booking details',
     bookingLines: [
       'Our room block is available for 3 or 4 nights starting on April 15, 2027',
-      'Optional shared transportation available for $85 per person when traveling in groups',
+      'Optional shared transportation available during the booking process for $85 per person when traveling in groups',
       'Last day to book a room in block is December 1, 2026',
       'An initial deposit is required at the time of booking'
     ],
@@ -32,29 +32,35 @@ const content = {
     emailJared: 'Email Jared',
     resortCode: 'Group code 0417',
     bookRoom: 'Book a Room',
-    ceremonyMoments: [
+    travelMoments: [
       {
-        title: 'The Ceremony',
-        lines: ['Beginning time TBA', 'At the Piano Bar'],
-        note: 'Semi-formal attire'
+        title: 'Resort',
+        lines: [
+          'Catalonia Grand Costa Mujeres',
+          'Check-in 3:00 PM | Check-out 12:00 PM',
+          'All inclusive'
+        ],
+        note: 'Website',
+        link: 'https://www.cataloniahotels.com/en/hotel/catalonia-grand-costa-mujeres'
       },
       {
-        title: 'The Celebration',
-        lines: ['Cocktail hour TBA', 'At the Terrace'],
-        note: 'After party later'
+        title: 'Airport',
+        lines: ['Cancun International Airport', 'Approx. 35-45 min to resort', 'Airport code: CUN'],
+        note: 'Flights',
+        link: 'https://www.google.com/travel/flights/flights-to-cancun.html'
       }
     ],
     weekendHeading: "Let's kick off the weekend",
     weekendMoments: [
       {
-        title: 'Welcome Drinks',
-        lines: ['04 16 27', 'Beginning at 5:00 PM', 'The Bar + Lounge'],
-        note: 'Cocktail attire'
+        title: 'The Ceremony',
+        lines: ['At the Piano Bar', 'Semi-formal attire'],
+        note: 'Beginning time TBA'
       },
       {
-        title: 'Sunday Brunch',
-        lines: ['04 18 27', 'Please join us at 10:00 AM', 'The Dining Room'],
-        note: 'Casual attire'
+        title: 'The Celebration',
+        lines: ['At the Terrace', 'Dinner, toasts, and dancing'],
+        note: 'Cocktail hour TBA'
       }
     ],
     countdownKicker: 'Counting down',
@@ -136,7 +142,7 @@ const content = {
     bookingHeading: 'Detalles de reserva',
     bookingLines: [
       'Nuestro bloque de habitaciones está disponible por 3 o 4 noches a partir del 15 de abril de 2027',
-      'Transporte compartido opcional disponible por $85 por persona para grupos',
+      'Transporte compartido opcional disponible durante el proceso de reserva por $85 por persona al viajar en grupos',
       'La fecha límite para reservar en el bloque es el 1 de diciembre de 2026',
       'Se requiere un depósito inicial al momento de reservar'
     ],
@@ -148,29 +154,39 @@ const content = {
     emailJared: 'Enviar correo a Jared',
     resortCode: 'Código de grupo 0417',
     bookRoom: 'Reservar habitación',
-    ceremonyMoments: [
+    travelMoments: [
       {
-        title: 'La ceremonia',
-        lines: ['La hora está por confirmarse', 'En Bar de Piano'],
-        note: 'Vestimenta semi-formal'
+        title: 'Resort',
+        lines: [
+          'Catalonia Grand Costa Mujeres',
+          'Entrada 3:00 PM | Salida 12:00 PM',
+          'Todo incluido'
+        ],
+        note: 'Sitio web',
+        link: 'https://www.cataloniahotels.com/en/hotel/catalonia-grand-costa-mujeres'
       },
       {
-        title: 'La celebración',
-        lines: ['La hora está por confirmarse', 'En La Terraza'],
-        note: 'After party más tarde'
+        title: 'Aeropuerto',
+        lines: [
+          'Aeropuerto Internacional de Cancún',
+          'Aprox. 35-45 min al resort',
+          'Código de aeropuerto: CUN'
+        ],
+        note: 'Vuelos',
+        link: 'https://www.google.com/travel/flights/flights-to-cancun.html'
       }
     ],
     weekendHeading: 'Comencemos el fin de semana',
     weekendMoments: [
       {
-        title: 'Tragos de bienvenida',
-        lines: ['04 16 27', 'Comienza a las 5:00 PM', 'The Bar + Lounge'],
-        note: 'Vestimenta coctel'
+        title: 'La Ceremonia',
+        lines: ['En el Piano Bar', 'Atuendo semi-formal'],
+        note: 'Hora de inicio por confirmar'
       },
       {
-        title: 'Brunch del domingo',
-        lines: ['04 18 27', 'Acompáñanos a las 10:00 AM', 'The Dining Room'],
-        note: 'Vestimenta casual'
+        title: 'La Celebración',
+        lines: ['En la Terraza', 'Cena, brindis y baile'],
+        note: 'Hora de cóctel por confirmar'
       }
     ],
     countdownKicker: 'Cuenta regresiva',
@@ -262,7 +278,11 @@ const renderTimelineCards = (items) =>
           <h3>${item.title}</h3>
           <p>${item.lines.join('<br />')}</p>
           <span class="timeline-separator">|</span>
-          <span class="timeline-note">${item.note}</span>
+          ${
+            item.link
+              ? `<a class="timeline-note" href="${item.link}" target="_blank" rel="noopener noreferrer">${item.note}</a>`
+              : `<span class="timeline-note">${item.note}</span>`
+          }
         </article>
       `
     )
@@ -352,6 +372,10 @@ const renderApp = () => {
           <p class="kicker" data-reveal="text" data-reveal-delay="70">${copy.invitationKicker}</p>
           <h2 data-reveal="text" data-reveal-delay="140">${copy.invitationTitle}<br /><br /></h2>
 
+        <div class="timeline-grid">
+            ${renderTimelineCards(copy.travelMoments)}
+          </div>
+
           <div class="travel-split reveal-card" data-reveal="card">
             <h3 class="travel-heading travel-heading--shared">${copy.bookingHeading}</h3>
             <div class="travel-col">
@@ -367,9 +391,6 @@ const renderApp = () => {
             </div>
           </div>
 
-          <div class="timeline-grid">
-            ${renderTimelineCards(copy.ceremonyMoments)}
-          </div>
         </div>
       </section>
 
@@ -436,7 +457,7 @@ const renderApp = () => {
             <div class="registry-tags" aria-label="${copy.registryIdeasLabel}">
               ${registryTags}
             </div>
-            <a class="button-link" href="#rsvp">${copy.giftButton}</a>
+            <a class="button-link" href="https://www.zola.com/registry/simpsonregistry" target="_blank" rel="noopener noreferrer">${copy.giftButton}</a>
           </aside>
         </div>
       </section>

@@ -454,6 +454,43 @@ label,
   opacity: 0.55;
 }
 
+.timeline-card a.timeline-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem;
+  font-weight: 500;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.26em;
+  text-decoration-color: rgba(235, 229, 220, 0.82);
+  border-radius: 0.35rem;
+  transition:
+    color 220ms ease,
+    text-decoration-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.timeline-card a.timeline-note:hover,
+.timeline-card a.timeline-note:focus-visible {
+  color: var(--white-chocolate);
+  text-decoration-color: currentColor;
+  background-color: rgba(235, 229, 220, 0.12);
+  box-shadow: 0 0 0 1px rgba(235, 229, 220, 0.28);
+}
+
+.timeline-grid--sand .timeline-card a.timeline-note {
+  text-decoration-color: rgba(69, 87, 99, 0.72);
+}
+
+.timeline-grid--sand .timeline-card a.timeline-note:hover,
+.timeline-grid--sand .timeline-card a.timeline-note:focus-visible {
+  color: var(--navy);
+  background-color: rgba(69, 87, 99, 0.08);
+  box-shadow: 0 0 0 1px rgba(69, 87, 99, 0.24);
+}
+
 .split-layout {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
